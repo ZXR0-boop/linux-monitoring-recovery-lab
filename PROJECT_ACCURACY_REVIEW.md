@@ -50,13 +50,3 @@ The project was built through guided troubleshooting and configuration. This por
 
 No polished code is described as byte-for-byte identical to what originally ran. No artificial log output is presented as operational evidence. The release contains no imported workflow JSON, original container export, or captured screenshot.
 
-## Remaining evidence to recover
-
-1. Original n8n workflow export with node credentials, identifiers, URLs, pinned data, and execution data removed.
-2. Original scripts, especially container health, CPU/RAM/battery/network checks, log filters, and any AI report component.
-3. A redacted healthy execution and a controlled failure/recovery execution, showing the final verification result.
-4. Schedule activation/settings if recurring execution is to be claimed.
-5. Actual AI input, prompt, output, model, and workflow connections if claiming AI-assisted monitoring integration.
-6. Container restart policy and recovery actions, if those are to become implemented claims.
-
-These gaps do not erase the demonstrated lab work. They constrain what this repository can credibly claim and reproduce today.

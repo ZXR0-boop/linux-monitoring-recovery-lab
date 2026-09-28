@@ -96,21 +96,9 @@ Personal Ubuntu/CasaOS lab documenting n8n monitoring, bounded disk recovery, lo
 
 `homelab` `linux` `ubuntu` `docker` `casaos` `n8n` `monitoring` `automation` `troubleshooting` `ollama` `nas` `smb` `portfolio`
 
-## 11. Resume bullets
 
-- Built and operated a personal Ubuntu/CasaOS lab with Docker-hosted applications, then configured NAS-hosted Plex and SMB file access.
-- Configured and tested n8n host-monitoring workflows with local logs, Discord alerts, and a bounded disk-cleanup recovery path followed by a usage check.
-- Deployed and tested local Ollama inference; troubleshot model/UI response behavior, VPN-related remote access, monitor targeting, and Plex library state.
 
-## 12. Interview explanation
-
-“I built a personal Ubuntu and CasaOS lab to learn how to operate and troubleshoot hosted services. I used n8n and SSH for health checks, local logs, Discord alerts, and a disk-cleanup workflow that checked the result after running. I also hosted Ollama locally and investigated model and interface performance. Later, I configured Plex and SMB on a NAS. One useful lesson came from stopping an application and discovering that my monitor was watching the wrong endpoint. I corrected it and verified the expected failure signal.”
-
-## 13. Screenshots still needed
-
-Prioritize the actual n8n workflow and one normal run, a controlled failure with verification, a matching log/notification, NAS Plex/SMB evidence, and a real local AI response. Use the full [redaction checklist](screenshots/README.md). No screenshots have been manufactured or included.
-
-## 14. Public-release assessment
+## 11. Public-release assessment
 
 The supplied files have been reviewed for public disclosure; see the file-level results in [PUBLIC_REPOSITORY_SECURITY_REVIEW.md](PUBLIC_REPOSITORY_SECURITY_REVIEW.md). The release is intended to be safe to share **with its current evidence limits intact**. It is not a certification of the live lab, a full deployment export, or a guarantee about future additions.
 

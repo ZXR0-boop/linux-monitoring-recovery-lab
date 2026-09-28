@@ -72,17 +72,3 @@ No recovered secret value is repeated in this report. The review did not recover
 | `scripts/monitoring/disk_diagnose.sh` | PASS | Recovered command logic with documented public wrappers; no credentials |
 | `tests/test_disk_scripts.py` | PASS | Synthetic command fixtures; no real environment output |
 
-## Items for the owner to inspect
-
-1. Confirm the MIT license choice and any public attribution before publication.
-2. Keep the evidence qualifications in the README and accuracy review. Verify details against the original lab before making stronger claims.
-3. Review the public Git author/profile information chosen when creating commits.
-4. Inspect every new screenshot at full resolution after opaque redaction/flattening and metadata removal.
-5. Before adding an n8n export, remove credentials, credential references, URLs, personal paths, pinned inputs, execution data, instance IDs, and private node names. Check generated report text too.
-6. Inspect any future scripts, configurations, logs, archive attachments, or commits as a new release. The current assessment does not cover additions.
-
-## Practical limits
-
-Pattern checks can miss unusual secrets; their result is combined with content review, not represented as proof that disclosure is impossible. Source retrieval was partial, so the audit covers what was generated and packaged, not every historic secret or source file. No remote repository was published or historical commit rewritten. No live server action was executed as part of this audit.
-
-The code tests and their limits are documented in [validation.md](docs/validation.md). Recovering more original code can improve reproducibility without requiring publication of private infrastructure details.
