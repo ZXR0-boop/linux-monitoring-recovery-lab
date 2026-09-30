@@ -42,3 +42,45 @@ flowchart TD
         NAS --> SMB["SMB file access"]
         NAS --> Plex["Plex container"]
     end
+```
+
+## Repository guide
+
+The repository is organized around the parts of the lab that are most useful to review:
+
+| Path | What it contains |
+| --- | --- |
+| [n8n monitoring & recovery](docs/n8n-monitoring-recovery.md) | Detailed workflow behavior, preserved commands, monitoring branches, logging, alerts, and recovery boundaries |
+| [Architecture](docs/architecture.md) | How the Linux host, Docker services, n8n, Ollama, NAS, SMB, and Plex fit together |
+| [Troubleshooting](docs/troubleshooting.md) | Case studies from availability testing, disk recovery, remote access, Plex, and local AI troubleshooting |
+| [Project scope](docs/project-scope.md) | Clear separation between implemented, tested, and planned work |
+| [Security considerations](docs/security-considerations.md) | What was intentionally sanitized and how automation boundaries were handled |
+| [Scripts](scripts/README.md) | Disk usage, diagnosis, and bounded cleanup scripts preserved from the project |
+
+## Key workflow
+
+The disk-capacity branch is the most complete end-to-end example in the repository:
+
+```text
+Read disk usage
+      ↓
+Above threshold?
+   ┌──┴──┐
+   No   Yes
+   ↓     ↓
+Healthy Diagnose
+          ↓
+       Cleanup
+          ↓
+        Verify
+          ↓
+      Log + Notify
+```
+
+The important design choice is that recovery is followed by a new measurement. A cleanup command succeeding is not treated as proof that the original problem has been resolved.
+
+## What I learned
+
+This lab gave me hands-on practice with Linux administration, Docker-hosted services, SSH-based checks, threshold logic, service monitoring, bounded remediation, post-remediation verification, remote-access troubleshooting, local AI hosting, and NAS-backed storage.
+
+It also reinforced a few operational habits: validate monitoring with controlled failures, troubleshoot one layer at a time, separate service health from data/index health, and keep credentials and live infrastructure details out of public repositories.
