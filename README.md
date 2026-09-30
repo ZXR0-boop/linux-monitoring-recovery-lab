@@ -16,7 +16,7 @@ I built this lab to learn how to operate services, diagnose failures, and turn r
 | Local AI | Ollama model/API tests and troubleshooting of chat-interface latency |
 | Networking and storage | Tailscale remote access troubleshooting, NAS SMB configuration, and Plex library/storage troubleshooting |
 
-**Evidence boundary:** this repository reconstructs the available project history. It includes three cleaned-up Bash scripts derived from recovered disk commands, not a complete deployment export. The record describes successful monitoring/recovery tests, but some results survive only in conversation recaps. Scheduling, an automated AI-to-recovery connection, and unrestricted service/container repair are not claimed. See the [accuracy review](PROJECT_ACCURACY_REVIEW.md) and [source provenance](docs/source-provenance.md).
+**Project scope:** this repository documents the portions of the lab that I was able to preserve accurately. It includes three Bash scripts derived from the disk-monitoring and recovery commands I used, but not a complete n8n deployment export. Some branch behavior is documented from project notes where the original executable artifacts were no longer available. Scheduling, an automated AI-to-recovery connection, and unrestricted service/container repair are not presented as completed features. See the [n8n monitoring and recovery notes](docs/n8n-monitoring-recovery.md) for the technical walkthrough.
 
 ## Architecture
 
