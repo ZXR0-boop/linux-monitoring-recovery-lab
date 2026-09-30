@@ -84,21 +84,18 @@ An active recurring schedule, complete AI monitoring integration, arbitrary serv
 
 Actual LAN/overlay addresses, private host and service targets, original mapped ports, account names, personal paths, private identifiers, raw output and logs. No real credentials, webhook values, tokens, keys, screenshots, hardware serials, or raw deployment exports were included. The review does not claim to have found or rotated a secret when none was recovered.
 
-## 8. Manual review items
 
-Confirm that you can explain the recorded workflow behavior; recover the original export/scripts to fill the stated gaps; confirm MIT licensing and intentional public attribution; review Git author privacy; and inspect every later screenshot/configuration before adding it. Do not strengthen the AI or scheduling claims without evidence. No further source access is needed to review the files already delivered.
-
-## 9. GitHub description
+## 8. GitHub description
 
 Personal Ubuntu/CasaOS lab documenting n8n monitoring, bounded disk recovery, local Ollama testing, Docker troubleshooting, and NAS/SMB integration.
 
-## 10. Topics
+## 9. Topics
 
 `homelab` `linux` `ubuntu` `docker` `casaos` `n8n` `monitoring` `automation` `troubleshooting` `ollama` `nas` `smb` `portfolio`
 
 
 
-## 11. Public-release assessment
+## 10. Public-release assessment
 
 The supplied files have been reviewed for public disclosure; see the file-level results in [PUBLIC_REPOSITORY_SECURITY_REVIEW.md](PUBLIC_REPOSITORY_SECURITY_REVIEW.md). The release is intended to be safe to share **with its current evidence limits intact**. It is not a certification of the live lab, a full deployment export, or a guarantee about future additions.
 
