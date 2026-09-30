@@ -1,8 +1,8 @@
-# n8n Monitoring & Recovery Automation — Portfolio Reference
+# n8n Monitoring & Recovery Automation
 
-> **Purpose:** A sanitized, GitHub-ready reference for a Linux home-lab monitoring and bounded-recovery project built with Ubuntu, CasaOS, Docker, n8n, SSH-based host checks, local logging, and Discord notifications.
->
-> **Accuracy note:** This write-up is based on the home-lab work I actually completed. Where I still had the original commands, I kept them. Where I no longer had the exact n8n export or script, I documented what the workflow did instead of recreating it and calling it original.
+This document records the monitoring and bounded-recovery work I completed in my Linux home lab using Ubuntu, CasaOS, Docker, n8n, SSH-based host checks, local logging, and Discord notifications.
+
+Where the original commands were preserved, they are shown directly. Where the full n8n export or supporting script was no longer available, I describe the observed workflow behavior rather than recreating missing implementation details.
 
 ---
 
@@ -46,7 +46,7 @@ df -P / | tail -1 | awk '{print $5}' | tr -d '%'
 
 The n8n decision branch treated usage **above 80%** as critical.
 
-### Cleaned-up public version: `disk_usage.sh`
+### Repository version: `disk_usage.sh`
 
 ```bash
 #!/usr/bin/env bash
@@ -100,7 +100,7 @@ printf '%d\n' "$((10#$disk_percent))"
 du -xhd1 / 2>/dev/null | sort -h | tail -10
 ```
 
-### Cleaned-up public version: `disk_diagnose.sh`
+### Repository version: `disk_diagnose.sh`
 
 ```bash
 #!/usr/bin/env bash
@@ -159,7 +159,7 @@ apt-get clean
 
 The workflow then checked disk usage again rather than assuming cleanup solved the problem.
 
-### Cleaned-up public version: `disk_cleanup.sh`
+### Repository version: `disk_cleanup.sh`
 
 ```bash
 #!/usr/bin/env bash
@@ -256,9 +256,7 @@ The original final threshold, complete shell collector, and exact n8n node confi
 
 The workflow included memory and swap percentage monitoring and verification.
 
-A fair way to describe this work is:
-
-> Built n8n host-health checks for RAM and swap usage, with threshold-based workflow branching and follow-up verification.
+This branch used n8n host-health checks for RAM and swap usage, with threshold-based workflow branching and follow-up verification.
 
 ---
 
@@ -331,17 +329,15 @@ Historical form:
 /home/<user>/n8n-health.log
 ```
 
-For a public repository, use a generic path and do not expose a real username or identifying filesystem path.
+The original path included a local username, so the identifying portion has been generalized here.
 
 ---
 
 ## 11. Discord Alerting
 
-Discord notifications were used for tested health branches.
+Discord notifications were used for tested health branches. Webhook URLs, API tokens, credential IDs, and private message metadata are intentionally excluded from this repository.
 
-Never publish Discord webhook URLs, API tokens, credential IDs, or private message metadata.
-
-Recommended representation:
+The notification flow was:
 
 ```text
 n8n workflow
@@ -378,17 +374,17 @@ A controlled application-stop test exposed an incorrect monitoring target; after
 
 ## 13. Failed SSH Login Monitoring
 
-**Note:** This was part of the monitoring scope I wanted to build out, but I don’t have enough of the original implementation left to present it as completed code.
+**Note:** Failed SSH login monitoring was part of the intended monitoring scope, but I do not have enough of the original implementation left to present it as completed code.
 
-I’m not adding a replacement script here and pretending it was part of the original build.
+No replacement script is included because it would not represent the original build accurately.
 
 ---
 
 ## 14. SMART / Disk Health Monitoring
 
-**Note:** This was part of the planned monitoring scope, but I don’t have enough of the original implementation left to present it as completed work.
+**Note:** SMART/disk-health monitoring was part of the planned monitoring scope, but I do not have enough of the original implementation left to present it as completed work.
 
-I’m treating this as future work until I have a version I can actually show.
+It remains future work until I have a version I can test and document directly.
 
 ---
 
@@ -418,71 +414,25 @@ The key idea is that AI output should be treated as input for review or structur
 
 ---
 
-## 16. Security Controls for a Public Repository
+## 16. Security and Sanitization
 
-Before publishing an n8n workflow export, I’d review it for:
+The repository excludes or generalizes environment-specific information that is not needed to understand the lab, including:
 
-- private IP addresses
-- hostnames
-- usernames
-- personal filesystem paths
+- private IP addresses and internal endpoint URLs
+- hostnames and usernames
+- identifying filesystem paths
 - Discord webhook URLs
-- API keys/tokens
+- API keys and tokens
 - n8n credential references
-- pinned execution data
-- workflow execution history
-- internal endpoint URLs
-- instance IDs
-- personal node names/comments
-- screenshots containing browser/session/account details
+- pinned execution data and workflow history
+- instance identifiers
+- screenshots or metadata containing account/session details
 
-Recommended `.gitignore` entries:
-
-```gitignore
-.env
-.env.*
-!.env.example
-
-*.log
-*.bak
-*.backup
-
-credentials/
-secrets/
-private/
-
-.n8n/
-```
+This keeps the technical behavior visible without exposing live credentials or private infrastructure details.
 
 ---
 
-## 17. Suggested GitHub Directory Layout
-
-```text
-linux-monitoring-recovery-lab/
-├── README.md
-├── SECURITY.md
-├── .gitignore
-├── docs/
-│   ├── architecture.md
-│   ├── monitoring.md
-│   ├── self-healing.md
-│   └── lessons-learned.md
-├── scripts/
-│   ├── health-check/
-│   │   └── disk_usage.sh
-│   ├── monitoring/
-│   │   └── disk_diagnose.sh
-│   └── maintenance/
-│       └── disk_cleanup.sh
-└── config-examples/
-    └── monitoring/
-        └── n8n-disk-branch.md
-```
-
----
-
-## 18. Safe Usage
+## 17. Safe Usage
 
 ```bash
 bash scripts/health-check/disk_usage.sh
@@ -496,23 +446,17 @@ A successful cleanup command does not prove the capacity issue is resolved. Veri
 
 ---
 
-## 19. Skills Demonstrated
+## 18. Skills Demonstrated
 
 Linux administration · Bash · SSH-based host checks · Docker · CasaOS · n8n workflow automation · threshold-based monitoring · troubleshooting · controlled failure testing · local event logging · Discord alerting · bounded recovery · post-remediation verification · local AI hosting with Ollama · security-conscious automation design · infrastructure documentation
 
 ---
 
-## 20. Portfolio Description
-
-> Built a Linux home-lab monitoring and recovery platform using Ubuntu, CasaOS, Docker, and n8n. Implemented SSH-based host-health checks, threshold-driven workflow branches, local logging, Discord notifications, application availability monitoring, and a bounded disk-recovery workflow that diagnoses high filesystem usage, performs limited cleanup, and verifies the result. Also deployed and troubleshot local AI services with Ollama while keeping automated recovery actions allowlisted and separate from AI-generated output.
-
----
-
-## 21. Project Notes
+## 19. Project Notes
 
 This repository reflects the work I completed in my home lab while learning Linux, Docker, n8n, monitoring, and automation.
 
-The disk usage, disk diagnosis, and disk cleanup sections are based directly on the commands I used in the project, with a few extra safety checks added for a public repo.
+The disk usage, disk diagnosis, and disk cleanup sections are based directly on the commands I used in the project, with additional input validation and dry-run protections added for this repository.
 
 Some of the original n8n exports and supporting scripts were not saved. For those parts, I documented what the workflow did instead of rebuilding it from memory and presenting it as the original.
 
